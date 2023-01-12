@@ -23,4 +23,12 @@ export class TweeterService {
       tweetMessage,
     });
   }
+  putTweeterData(id: number, tweetMessage: any) {
+    return this.httpClient.put(`/api/feed/${id}`, {
+      tweetMessage,
+    });
+  }
+  deleteTweeterData(id: number) {
+    return this.httpClient.delete(`api/feeds/${id}`)
+  }
 }
