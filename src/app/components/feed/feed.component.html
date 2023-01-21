@@ -150,11 +150,11 @@
   <div *ngFor="let feed of feeds" class="feed">
     <div class="feed_top">
       <div class="feed_top_profile-img">
-        <img [src]="feed?.profileImg" alt="" />
+        <img [src]="feed?.profileimg" alt="" />
       </div>
       <div class="feed_top_profile">
         <div class="feed_top_profile_container">
-          <p class="feed_top_profile_container_name">{{ feed?.name }}</p>
+          <p class="feed_top_profile_container_name">{{ feed?.username }}</p>
           <div class="feedProfileIcon">
             <i class="fab fa-apple"></i>
           </div>
@@ -170,7 +170,7 @@
     <div class="feed_bottom">
       <div class="feed_bottom_img-container">
         <div>#iOSDev</div>
-        <img [src]="feed?.tweetImg" alt="" />
+        <img [src]="feed?.tweetimg" alt="" />
       </div>
       <div class="feed_bottom_icons-container">
         <div class="feed_bottom_icons-container_icon">

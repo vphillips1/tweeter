@@ -58,15 +58,16 @@ export class HomeComponent implements OnInit {
     this.tweeterService.getMockMessage().subscribe((data: any) => {
       console.log('Message Data', data);
     });
-    this.tweeterService.getTweeterData().subscribe((data: any) => {
-      this.feeds = data;
+    this.tweeterService.getTweeterData().subscribe((res: any) => {
+      console.log('data', res.data);
+      this.feeds = res.data;
       this.showFeed = true;
-      this.userProfileName = data[0].name;
-      this.userProfileImg = data[0].profileImg;
-      this.userProfileHandler = data[0].handler;
+      this.userProfileName = res.data[0].username;
+      this.userProfileImg = res.data[0].profileihttpmg;
+      this.userProfileHandler = res.data[0].handler;
       this.tweeterService.$tweeterData.next({
-        feeds: data,
-        userProfileImg: data[0].profileImg,
+        feeds: res.data,
+        userProfileImg: res.data[0].profileimg,
         showFeed: true,
       });
     });

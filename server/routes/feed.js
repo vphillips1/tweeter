@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const db = require("../db");
 
 let feeds = [];
 
@@ -40,11 +41,16 @@ router.put("/:id", async (req, res) => {
 
 //Read
 router.get("/", async (req, res) => {
-  const tweeterData = await axios.get(
-    "https://mpb-site.s3.us-east-2.amazonaws.com/tweeter.json"
-  );
-  feeds = tweeterData.data;
-  res.json(tweeterData.data);
+  const data = await db.query('SELECT *  FROM "mpb_feeds"');
+  feeds = data.rows;
+  res.json({
+    data: feeds,
+  });
+  // const tweeterData = await axios.get(
+  //   "https://mpb-site.s3.us-east-2.amazonaws.com/tweeter.json"
+  // );
+  // feeds = tweeterData.data;
+  // res.json(tweeterData.data);
 });
 
 //Delete
